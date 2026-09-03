@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Greenlab App</title>
   <style>
     html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
@@ -9,6 +10,13 @@
   </style>
 </head>
 <body>
-  <iframe src="https://script.google.com/macros/s/AKfycbzCTg1w5CTB2UZZncY6sojUUlCW4nM2ZjGmpt-V5QmSXirKzzeLqR9O3FERf8d_e8c/exec"></iframe>
+  <iframe id="gsFrame"></iframe>
+  <script>
+    // Cache-buster: har baar page load pe naya query param add karo,
+    // taki mobile Chrome purani cached copy ke bajaye Apps Script se
+    // fresh (latest deployed) version laaye.
+    var baseUrl = "https://script.google.com/macros/s/AKfycbzCTg1w5CTB2UZZncY6sojUUlCW4nM2ZjGmpt-V5QmSXirKzzeLqR9O3FERf8d_e8c/exec";
+    document.getElementById('gsFrame').src = baseUrl + "?nocache=" + Date.now();
+  </script>
 </body>
 </html>
